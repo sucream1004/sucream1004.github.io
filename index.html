@@ -81,20 +81,62 @@
       zoom: 14 // starting zoom
     });
 
+    var hoveredStateId = null;
+
     map.on('load', function() {
+      map.addSource('tmp', {
+        'type': 'geojson',
+        'data': './CT.geojson'
+      });
+
       map.addLayer({
-        'id': 'kpark',
+        'id': 'kpark-fills',
         'type': 'fill',
+        'source': 'tmp',
+        'layout': {},
+        'paint': {
+          'fill-color': '#f08',
+          'fill-opacity': ['case',
+            ['boolean', ['feature-kpark', 'hover'], false],
+            1,
+            0.5
+          ]
+        }
+      });
+
+      map.addLayer({
+        'id': 'kpark-borders',
+        'type': 'line',
         'source': {
           'type': 'geojson',
           'data': './CT.geojson'
         },
         'layout': {},
         'paint': {
-          'fill-color': '#f08',
-          'fill-opacity': 0.4
+          'line-color': '#f08',
+          'line-width': 2
         }
       });
+
+      map.on("mousemove", "kpark-fills", function(e) {
+          if (e.features.length > 0) {
+              if (hoveredStateId) {
+                  map.setFeatureState({source: 'states', id: hoveredStateId}, { hover: false});
+              }
+              hoveredStateId = e.features[0].id;
+              map.setFeatureState({source: 'states', id: hoveredStateId}, { hover: true});
+          }
+      });
+
+      // When the mouse leaves the state-fill layer, update the feature state of the
+      // previously hovered feature.
+      map.on("mouseleave", "state-fills", function() {
+          if (hoveredStateId) {
+              map.setFeatureState({source: 'states', id: hoveredStateId}, { hover: false});
+          }
+          hoveredStateId =  null;
+      });
+
     });
 
     var geocoder = new MapboxGeocoder({
