@@ -63,8 +63,11 @@ var map = new mapboxgl.Map({
 });
 
 map.on('load', function() {
-    map.addLayer(CT)}
-      );
+    map.addSource('boy', {
+        type: 'geojson',
+        data: './CT.geojson'
+    });
+});
 
 var geocoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken
