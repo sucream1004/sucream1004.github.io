@@ -121,18 +121,18 @@
       map.on("mousemove", "kpark-fills", function(e) {
           if (e.features.length > 0) {
               if (hoveredStateId) {
-                  map.setFeatureState({source: 'states', id: hoveredStateId}, { hover: false});
+                  map.setFeatureState({source: 'tmp', id: hoveredStateId}, { hover: false});
               }
               hoveredStateId = e.features[0].id;
-              map.setFeatureState({source: 'states', id: hoveredStateId}, { hover: true});
+              map.setFeatureState({source: 'tmp', id: hoveredStateId}, { hover: true});
           }
       });
 
       // When the mouse leaves the state-fill layer, update the feature state of the
       // previously hovered feature.
-      map.on("mouseleave", "state-fills", function() {
+      map.on("mouseleave", "kpark-fills", function() {
           if (hoveredStateId) {
-              map.setFeatureState({source: 'states', id: hoveredStateId}, { hover: false});
+              map.setFeatureState({source: 'tmp', id: hoveredStateId}, { hover: false});
           }
           hoveredStateId =  null;
       });
