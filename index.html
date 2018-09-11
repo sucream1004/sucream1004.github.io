@@ -1,92 +1,109 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset='utf-8' />
-    <title>Display a map</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.css' rel='stylesheet' />
-    <style>
-        body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; width:100%; }
-    </style>
-</head>
-<body>
-<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
-<script src='./CT.geojson'></script>
-<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css' type='text/css' />
-<div class='sidebar pad2'>Here is for LIst</div>
-<div id='map' class='map pad2'>Here is for name</div>
-<div id='geocoder' class='geocoder'></div>
-<style>
-  body {
-    background:#ffffff;
-    color:#000000;
-    font:500 20px/26px 'Helvetica Neue', Helvetica, Arial, Sans-serif;
-    margin:0;
-    padding:0;
-    -webkit-font-smoothing:antialiased;
-    }
-  .sidebar {
-    width:15%;
-    }
-  .pad2 {
-    padding:0px;
-    -webkit-box-sizing:border-box;
-       -moz-box-sizing:border-box;
-            box-sizing:border-box;
-    }
-  .map {
-    border-left:1px solid #fff;
-    position:absolute;
-    left:15%;
-    width:66.6666%;
-    top:0;bottom:0;
-    }
-  .geocoder {
-    position:absolute;
-    z-index:1;
-    width:50%;
-    left:50%;
-    margin-left:-25%;
-    top:50px;
-    }
-  .mapboxgl-ctrl-geocoder { min-width:100%; }
-</style>
-<script>
-mapboxgl.accessToken = 'pk.eyJ1IjoiZGRvbmcwODA0IiwiYSI6ImNqOWUxaTg5ejI1ZHgyd2xzMmtheDMwaGQifQ.cOOXKOor7NbyurZsNeq5Xw';
-var map = new mapboxgl.Map({
-    container: 'map', // container id
-    style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
-    center: [-73.9776, 40.6916], // starting position [lng, lat]
-    zoom: 14 // starting zoom
-});
 
-map.on('load', function() {
-    map.addLayer({
+<head>
+  <meta charset='utf-8' />
+  <title>Display a map</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.css' rel='stylesheet' />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
+  <script src='./CT.geojson'></script>
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css' type='text/css' />
+  <div class='sidebar pad2'>Here is for LIst</div>
+  <div id='map' class='map pad2'>Here is for name</div>
+  <div id='geocoder' class='geocoder'></div>
+  <style>
+    body {
+      background: #ffffff;
+      color: #000000;
+      font: 500 20px/26px 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .sidebar {
+      width: 15%;
+    }
+
+    .pad2 {
+      padding: 0px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    .map {
+      border-left: 1px solid #fff;
+      position: absolute;
+      left: 15%;
+      width: 66.6666%;
+      top: 0;
+      bottom: 0;
+    }
+
+    .geocoder {
+      position: absolute;
+      z-index: 1;
+      width: 50%;
+      left: 50%;
+      margin-left: -25%;
+      top: 50px;
+    }
+
+    .mapboxgl-ctrl-geocoder {
+      min-width: 100%;
+    }
+  </style>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZGRvbmcwODA0IiwiYSI6ImNqOWUxaTg5ejI1ZHgyd2xzMmtheDMwaGQifQ.cOOXKOor7NbyurZsNeq5Xw';
+    var map = new mapboxgl.Map({
+      container: 'map', // container id
+      style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
+      center: [-73.9776, 40.6916], // starting position [lng, lat]
+      zoom: 14 // starting zoom
+    });
+
+    map.on('load', function() {
+      map.addLayer({
         'id': 'kpark',
         'type': 'fill',
-        'source':{
-            'type': 'geojson',
-            'data': './CT.geojson'
+        'source': {
+          'type': 'geojson',
+          'data': './CT.geojson'
         },
         'layout': {},
         'paint': {
-            'fill-color': '#f08',
-            'fill-opacity': 0.4
+          'fill-color': '#f08',
+          'fill-opacity': 0.4
         }
+      });
     });
-});
-    
-});
 
-var geocoder = new MapboxGeocoder({
-    accessToken: mapboxgl.accessToken
-});
+    var geocoder = new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken
+    });
 
-document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
-
-</script>
+    document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+  </script>
 
 </body>
+
 </html>
