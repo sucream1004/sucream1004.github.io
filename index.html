@@ -13,9 +13,10 @@
 </head>
 <body>
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
+<script src='./CT.geojson'></script>
 <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css' type='text/css' />
-<div class='sidebar pad2'>여기는 리스트다</div>
-<div id='map' class='map pad2'>기루기보이와근덕보이와재현보이</div>
+<div class='sidebar pad2'>Here is for LIst</div>
+<div id='map' class='map pad2'>Here is for name</div>
 <div id='geocoder' class='geocoder'></div>
 <style>
   body {
@@ -60,10 +61,11 @@ var map = new mapboxgl.Map({
     center: [-73.9776, 40.6916], // starting position [lng, lat]
     zoom: 14 // starting zoom
 });
-/*
+
 map.on('load', function() {
+    map.addLayer(CT
 })
-*/
+
 var geocoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken
 });
