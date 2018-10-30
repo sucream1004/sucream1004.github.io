@@ -1,164 +1,405 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset='utf-8' />
-  <title>Display a map</title>
-  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.js'></script>
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.css' rel='stylesheet' />
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-    }
 
-    #map {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 100%;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Kpark Web</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/resume.min.css" rel="stylesheet">
+
 </head>
 
-<body>
-  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
-  <script src='./CT.geojson'></script>
-  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css' type='text/css' />
-  <div class='sidebar pad2'>Here is for LIst</div>
-  <div id='map' class='map pad2'>Here is for name</div>
-  <div id='geocoder' class='geocoder'></div>
-  <style>
-    body {
-      background: #ffffff;
-      color: #000000;
-      font: 500 20px/26px 'Helvetica Neue', Helvetica, Arial, Sans-serif;
-      margin: 0;
-      padding: 0;
-      -webkit-font-smoothing: antialiased;
-    }
+<body id="page-top">
 
-    .sidebar {
-      width: 15%;
-    }
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+      <span class="d-block d-lg-none">Keundeok Park</span>
+      <span class="d-none d-lg-block">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#publications">Publications</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#conference">Conference</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#education">Education</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-    .pad2 {
-      padding: 0px;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-    }
+  <div class="container-fluid p-0">
 
-    .map {
-      border-left: 1px solid #fff;
-      position: absolute;
-      left: 15%;
-      width: 66.6666%;
-      top: 0;
-      bottom: 0;
-    }
+    <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+      <div class="my-auto">
+        <h1 class="mb-0">Keundeok
+          <span class="text-primary">Park</span>
+        </h1>
+        <div class="subheading mb-5">257 Gold Street, NY 11201 · (646) 830-5091 ·
+          <a href="mailto:kp2393@nyu.edu">kp2393@nyu.edu</a>
+        </div>
+        <p class="lead mb-5">I completed bachelor and master in urban planning at Hanyang University, South Korea. Currently, I am doing second masters program at Center for Urban Science and Progress, New York University. For future work, I would
+          like to apply machine learning and computer vision to promote urban environment urban design.</p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/keundeok-park-a727b9169/">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/sucream1004">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://twitter.com/kpark24595424">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100001767052698">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </div>
+      </div>
+    </section>
 
-    .geocoder {
-      position: absolute;
-      z-index: 1;
-      width: 50%;
-      left: 50%;
-      margin-left: -25%;
-      top: 50px;
-    }
+    <hr class="m-0">
 
-    .mapboxgl-ctrl-geocoder {
-      min-width: 100%;
-    }
-  </style>
-  <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoiZGRvbmcwODA0IiwiYSI6ImNqOWUxaTg5ejI1ZHgyd2xzMmtheDMwaGQifQ.cOOXKOor7NbyurZsNeq5Xw';
-    var map = new mapboxgl.Map({
-      container: 'map', // container id
-      style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
-      center: [-73.9776, 40.6916], // starting position [lng, lat]
-      zoom: 14 // starting zoom
-    });
+    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="publications">
+      <div class="my-auto">
+        <h2 class="mb-5">Journal Publications</h2>
 
-    var hoveredStateId = null;
+        <div class="resume-item d-flex flex-column flex-md-row mb-5">
+          <div class="resume-content mr-auto">
+            <p><b>Park, K.</b> and Lee, S. 2017. “Application and Validation of a Deep Learning Model to Predict the Walking Satisfaction on Street Level”, <i>Journal of the Urban Design Institute of Korea</i>, forthcoming. (in Korean, KCI)</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">forthcoming</span>
+          </div>
+        </div>
 
-    map.on('load', function() {
+        <div class="resume-item d-flex flex-column flex-md-row mb-5">
+          <div class="resume-content mr-auto">
+            <p><b>Park, K.</b>, Lee, S., Lee, E. Y. and Choi, B. Y. 2017. “A study on the effects of individual and household characteristics and built environments on resident’s depression: focused on the community health survey 2013-2014 of
+              Gyeonggi province in Korea”, <i>Journal of Korea Planning Association</i>, 52(3): 93-108. (in Korean, KCI)</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">2017</span>
+          </div>
+        </div>
 
-      map.addLayer({
-        'id': 'kpark-fills',
-        'type': 'fill',
-        'source': {
-          'type': 'geojson',
-          'data': './CT.geojson'
-        },
-        'layout': {},
-        'paint': {
-          'fill-color': '#f08',
-          'fill-opacity': ['case',
-            ['boolean', ['feature-kpark', 'hover'], false],
-            1,
-            0.5
-          ]
-        }
-      });
+        <div class="resume-item d-flex flex-column flex-md-row mb-5">
+          <div class="resume-content mr-auto">
+            <p><b>Park, K.</b>, and Lee, S. 2017. “Analysis of the structural relationship between neighborhood environment, daily walking activity, and subjective health status in Seoul, Korea: application of path analysis model”, <i>Journal of
+                Korea Planning Association</i>, 53(1):255-272. (in Korean, KCI)</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">2017</span>
+          </div>
+        </div>
 
-      map.addLayer({
-        'id': 'kpark-borders',
-        'type': 'line',
-        'source': {
-          'type': 'geojson',
-          'data': './CT.geojson'
-        },
-        'layout': {},
-        'paint': {
-          'line-color': '#f08',
-          'line-width': 2
-        }
-      });
+      </div>
 
-      map.on("mousemove", "kpark-fills", function(e) {
-        if (e.features.length > 0) {
-          if (hoveredStateId) {
-            map.setFeatureState({
-              source: 'tmp',
-              id: hoveredStateId
-            }, {
-              hover: false
-            });
-          }
-          hoveredStateId = e.features[0].id;
-          map.setFeatureState({
-            source: 'tmp',
-            id: hoveredStateId
-          }, {
-            hover: true
-          });
-        }
-      });
 
-      // When the mouse leaves the state-fill layer, update the feature state of the
-      // previously hovered feature.
-      map.on("mouseleave", "kpark-fills", function() {
-        if (hoveredStateId) {
-          map.setFeatureState({
-            source: 'tmp',
-            id: hoveredStateId
-          }, {
-            hover: false
-          });
-        }
-        hoveredStateId = null;
-      });
+    </section>
 
-    });
+    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="conference">
+      <div class="my-auto">
+        <h2 class="mb-5">Conference</h2>
 
-    var geocoder = new MapboxGeocoder({
-      accessToken: mapboxgl.accessToken
-    });
+        <div class="resume-item d-flex flex-column flex-md-row mb-5">
+          <div class="resume-content mr-auto">
+            <p><b>Park, K.</b> and Lee, S. 2017. “Analysis of walkability of street image using deep learning and Google street view API”, <i>Proceeding at the Annual Conference of the Urban Design Institute of Korea</i>, Mokpo National University,
+              Sep. 4.</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">September 2017</span>
+          </div>
+        </div>
 
-    document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
-  </script>
+        <div class="resume-item d-flex flex-column flex-md-row mb-5">
+          <div class="resume-content mr-auto">
+            <p><b>Park, K.</b> and Lee, S. 2017. “Analysis of the structural relationship between neighborhood environment, daily walking activity, and subjective health status in Seoul, Korea: Application of path analysis model”, Proceeding at the
+              Annual Conference of Korea Planning Association, Yonsei University, Apr. 29.</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">April 2017</span>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row mb-5">
+          <div class="resume-content mr-auto">
+            <p><b>Park, K.</b>, Lee, S., Lee, E. Y. and Choi, B. Y. 2016. “A study on the effects of individual and household characteristics and built environments on resident’s depression”, <i>Proceeding at the Annual Conference of Korean Regional
+                Science Association</i>, Sungshin University, Seoul, Korea, Nov. 25.</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">November 2016</span>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row mb-5">
+          <div class="resume-content mr-auto">
+            <p><b>Park, K.</b> and Lee, S. 2016. “Analysis of residential location determinants: Focused on 20-30s single household in subway station areas”, Presentation at <i>the 2016 Seoul Research Contest using Public Data</i>, Seoul City Hall,
+              Nov. 16.</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">November 2016</span>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row mb-5">
+          <div class="resume-content mr-auto">
+            <p>Lee, S., Park, C., <b>Park, K.</b> and Li, Y. 2016. “The impacts of anthropogenic heat sources on urban air temperature in Seoul, Korea. <i>Proceeding at International Conference of Asia-Pacific Planning Societies(ICAPPS)</i>, Chinese
+              Cultural University, Taipei, Taiwan. Aug. 25.</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">August 2016</span>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row mb-5">
+          <div class="resume-content mr-auto">
+            <p><b>Park, K.</b>, Lee, S. and Park, J. I. 2016. “Analysis of status of vitalization within transit station influence areas: focused on subway stations in Seoul, Korea”, <i>Proceeding at the Annual Conference of Korea Planning
+                Association</i>, University of Seoul, Apr. 30.</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">April 2016</span>
+          </div>
+        </div>
+
+      </div>
+
+
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="education">
+      <div class="my-auto">
+        <h2 class="mb-5">Education</h2>
+
+        <div class="resume-item d-flex flex-column flex-md-row">
+          <div class="resume-content mr-auto">
+            <h3 class="mb-0">New York University</h3>
+            <div class="subheading mb-3">Master of Science</div>
+            <div> Center for Urban Science and progress </div>
+            <p>GPA: NaN</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">August 2018 - Present</span>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row">
+          <div class="resume-content mr-auto">
+            <h3 class="mb-0">Hanyang University</h3>
+            <div class="subheading mb-3">Master of Science</div>
+            <div>Department of Urban Planning & Engineering</div>
+            <p>GPA: 4.00</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">March 2016 - August 2018</span>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row mb-5">
+          <div class="resume-content mr-auto">
+            <h3 class="mb-0">Hanyang University</h3>
+            <div class="subheading mb-3">Bachelor of Science</div>
+            <div>Department of Urban Planning & Engineering</div>
+            <p>GPA: 3.24</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">March 2009 - February 2016</span>
+          </div>
+        </div>
+
+
+
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
+      <div class="my-auto">
+        <h2 class="mb-5">Skills</h2>
+
+        <div class="subheading mb-3">Programming Languages &amp; Tools</div>
+        <ul class="list-inline dev-icons">
+          <li class="list-inline-item">
+            <i class="fab fa-python"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-html5"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-css3-alt"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-js-square"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="devicon-photoshop-plain"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="devicon-postgresql-plain"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-docker"></i>
+          </li>
+        </ul>
+
+        <div class="subheading mb-3">Workflow</div>
+        <ul class="fa-ul mb-0">
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            Spatial Analytics</li>
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            Statistical Analysis</li>
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            Data Wrangling</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="projects">
+      <div class="my-auto">
+        <h2 class="mb-5">Research Projects</h2>
+        <h4>Graduate Research Assistant, Dept. of Urban Planning & Engineering, Hanyang University</h3>
+          <br>
+          <div class="resume-item d-flex flex-column flex-md-row">
+            <div class="resume-content mr-auto">
+              <p>“Finding Happy Place in Seoul Using Social Media data and Textmining” Funded by Seoul Institute (Principal Investigator: Dr. Sugie Lee)</p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">2017</span>
+            </div>
+          </div>
+          <div class="resume-item d-flex flex-column flex-md-row">
+            <div class="resume-content mr-auto">
+              <p>“Model Development for Promoting Spatial-Temporal Street Vitality Integrating Bigdata and Spatial Information Technology” Funded by National Research Foundation of Korea (Principal Investigator: Dr. Sugie Lee)</p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">2017</span>
+            </div>
+          </div>
+          <div class="resume-item d-flex flex-column flex-md-row">
+            <div class="resume-content mr-auto">
+              <p>“A Study on the Impacts of Community Built Environment to Physical Activity and Health Status” Funded by Hanyang University (Principal Investigator: Dr. Sugie Lee)</p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">2016-2017</span>
+            </div>
+          </div>
+          <div class="resume-item d-flex flex-column flex-md-row">
+            <div class="resume-content mr-auto">
+              <p>“A Study on the Interaction between Social Capital and Physical Environment for Sustainable Urban Regeneration” Funded by National Research Foundation of Korea (Principal Investigator: Dr. Sugie Lee)</p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">2016-2017</span>
+            </div>
+          </div>
+          <div class="resume-item d-flex flex-column flex-md-row">
+            <div class="resume-content mr-auto">
+              <p>“Developing the Urban Thermal Environmental Planning and Design System for Adapting Climate Changes” Funded by Korea Agency for Infrastructure Technology Advancement (Principal Investigator: Dr. Kyu Shik Oh)</p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">2016-2017</span>
+            </div>
+          </div>
+          <div class="resume-item d-flex flex-column flex-md-row">
+            <div class="resume-content mr-auto">
+              <p>“A Study on the Impacts of Built Environment on Physical Activity, Obesity, and Cardiovascular Disease in Women Living in Socioeconomically Vulnerable Areas” Funded by National Research Foundation of Korea (Principal Investigator:
+                Dr. Eun Young Lee)</p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">2015-2016</span>
+            </div>
+          </div>
+          <div class="resume-item d-flex flex-column flex-md-row">
+            <div class="resume-content mr-auto">
+              <p>“Creating City Trail and Walkable Health-Promoting Stair” Funded by Seoul Metropolitan Government (Principal Investigator: Dr. Sugie Lee)</p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">2014</span>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="awards">
+      <div class="my-auto">
+        <h2 class="mb-5">Awards &amp; Certifications</h2>
+        <ul class="fa-ul mb-0">
+          <li>
+            <i class="fa-li fa fa-trophy text-warning"></i>
+            Best Research Award, 2017 Seoul Happiness Research, The Seoul Institute</li>
+          <li>
+            <i class="fa-li fa fa-trophy text-warning"></i>
+            Best Paper Award, Annual Conference of the Korea Planning Association</li>
+          <li>
+            <i class="fa-li fa fa-trophy text-warning"></i>
+            Encouragement Award, 2016 Seoul Research Contest using Public Data, Seoul Research Institute</li>
+          <li>
+            <i class="fa-li fa fa-trophy text-warning"></i>
+            Excellence Award, 6th Capstone Design Fair, Engineering College, Hanyang University</li>
+          <li>
+            <i class="fa-li fa fa-trophy text-warning"></i>
+            Runners-up, Contest Exhibit of Seoul Community Design, Urban Design Institute of Korea</li>
+          <li>
+            <i class="fa-li fa fa-certificate text-warning"></i>
+            Certificate of Graphic Technology Qualification in Photoshop (Level-1, Advanced)</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/resume.min.js"></script>
 
 </body>
 
