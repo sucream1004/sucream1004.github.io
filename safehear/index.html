@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        annyang.start({ autoRestart: true, continuous: true })
+        var recognition = annyang.getSpeechRecognizer();
+        var final_transcript = '';
+        recognition.interimResults = true;
+        recognition.onresult = function (event) {
+            var interim_transcript = '';
+            final_transcript = '';
+            for (var i = event.resultIndex; i < event.results.length; ++i) {
+                if (event.results[i].isFinal) {
+                    final_transcript += event.results[i][0].transcript;
+                    console.log("final_transcript=" + final_transcript);
+                } else {
+                    interim_transcript += event.results[i][0].transcript;
+                    console.log("interim_transcript=" + interim_transcript);
+                }
+            }
+
+            document.getElementById('result').innerHTML = 'Result: ' + final_transcript;
+            console.log('interim=' + interim_transcript + '|final=' + final_transcript);
+            var check = final_transcript.includes("help");
+            document.getElementById('test').innerHTML = check;
+            if (check==true) {
+                sendEmail();
+            }
+        };
+    </script>
+    <title>SafeHear</title>
+</head>
+
+<body>
+    <div class='container'>
+        <h1>SafeHear is Running</h1>
+        <div id='result'>
+            no result
+        </div>
+        <div id='test'>
+            goooood status~~~~~
+        </div>
+    </div>
+    <script type="text/javascript">
+        function sendEmail() {
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username: "kp2393dev@gmail.com",
+                Password: "ckdbs123",
+                To: 'sucream1004@gmail.com',
+                From: "kp2393@gmail.com",
+                Subject: "Test",
+                Body: "Your friend is in danger! Help!"
+            }).then(
+                message => alert("mail sent successfully")
+            );
+        }
+    </script>
+</body>
+
+</html>
