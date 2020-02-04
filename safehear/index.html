@@ -31,11 +31,9 @@
             document.getElementById('result').innerHTML = 'Result: ' + final_transcript;
             console.log('interim=' + interim_transcript + '|final=' + final_transcript);
             var check = final_transcript.includes("help");
+            document.getElementById('test').innerHTML = "Email is Sent";
             if (check == true) {
-                document.getElementById('test').innerHTML = "Email is Sent";
                 sendEmail();
-            } else {
-                document.getElementById('test').innerHTML = "Recording"
             }
         };
     </script>
@@ -51,7 +49,6 @@
         <div id='test'>
             <i class="fa fa-spinner fa-spin fa-fw"></i> Good Status
         </div>
-        <div id="map"></div>
     </div>
     <script type="text/javascript">
         function sendEmail() {
