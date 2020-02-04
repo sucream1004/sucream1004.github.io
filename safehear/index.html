@@ -31,11 +31,17 @@
             console.log('interim=' + interim_transcript + '|final=' + final_transcript);
             var check = final_transcript.includes("help");
             document.getElementById('test').innerHTML = check;
-            if (check==true) {
+            if (check == true) {
                 sendEmail();
             }
         };
     </script>
+    <style>
+        #map {
+            width: 500px;
+            height: 500px;
+        }
+    </style>
     <title>SafeHear</title>
 </head>
 
@@ -48,6 +54,7 @@
         <div id='test'>
             goooood status~~~~~
         </div>
+        <div id="map"></div>
     </div>
     <script type="text/javascript">
         function sendEmail() {
@@ -57,8 +64,12 @@
                 Password: "ckdbs123",
                 To: 'sucream1004@gmail.com',
                 From: "kp2393dev@gmail.com",
-                Subject: "Test",
-                Body: "Your friend is in danger! Help!"
+                Subject: "SafeHear Alert: Violence Detected",
+                Body: "Dear John Doe,</br>We detected a potentially violent event from your friend,\
+                 Patrick. The estimated violence intensity level is medium. Please contact your friend as soon as possible. \
+                 Here are some contact information:</br>Patrick:&emsp(646)123-4567</br>Psychiatry \
+                 Professional:&emsp(917)135-7924</br>Psychologist:&emsp(646)444-7777</br>Domestic Violence Hotline:&emsp(646)252-8282</br>Emergency \
+                 Services:&emsp911 Patrick's Location <img src='https://www.syfy.com/sites/syfy/files/styles/syfy_cast_detail_smartphone_narrow_1x/public/cast_futurama_bender_0.jpg'>"
             });
         }
     </script>
